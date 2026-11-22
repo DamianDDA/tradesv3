@@ -1,0 +1,88 @@
+:root {
+  font: 15px/1.5 system-ui, sans-serif;
+  color: #f6f1f2;
+  --panel: #101012;
+  --surface: #19191c;
+  --text-muted: #b8afb3;
+  --line: #383337;
+  --red: #f75261;
+  --button-red: #b92136;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: transparent; }
+#exchange {
+  color-scheme: dark;
+  width: min(1110px, 94vw);
+  height: min(810px, 90vh);
+  margin: 5vh auto 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  border-radius: 14px;
+  background: var(--panel);
+  overflow: hidden;
+}
+header, nav, #notice, #content { padding-inline: clamp(16px, 3vw, 36px); }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-block: clamp(12px, 2.6vh, 26px);
+  background: linear-gradient(115deg, #25161a, var(--panel) 52%);
+}
+h1 { margin: 0; font: 700 clamp(22px, 3.1vw, 38px)/1.15 system-ui, sans-serif; letter-spacing: -.04em; }
+#brand, small { font-size: 11px; font-weight: 750; }
+#brand { margin: 0 0 4px; color: #ff8893; }
+.tools, .actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.wallet { padding-right: 12px; margin-right: 4px; border-right: 1px solid var(--line); }
+.wallet small { color: var(--text-muted); }
+.tools strong { display: block; font-size: 18px; font-variant-numeric: tabular-nums; }
+nav { border-bottom: 1px solid var(--line); display: flex; gap: clamp(10px, 2vw, 24px); flex-wrap: wrap; }
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #141417;
+  padding: 8px 11px;
+  min-width: 0;
+}
+button { cursor: pointer; font-weight: 650; white-space: normal; }
+button:hover { border-color: var(--red); }
+button:disabled { opacity: .5; cursor: wait; }
+:focus-visible { outline: 2px solid #ff98a1; outline-offset: 2px; }
+nav button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; padding: 11px 2px; color: var(--text-muted); }
+nav button[aria-current="page"] { color: #fff; border-bottom-color: var(--red); }
+.primary { background: var(--button-red); border-color: #dc3b50; color: #fff; }
+.primary:hover { background: #ce2c43; }
+#notice { padding-block: 9px; color: #ffd5da; background: #321a20; }
+#content { flex: 1; min-height: 0; padding-block: 22px 32px; overflow: auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 14px; align-items: start; }
+.card { background: var(--surface); padding: 18px; border: 1px solid var(--line); border-radius: 10px; min-width: 0; overflow-wrap: anywhere; }
+h2 { font-size: 18px; line-height: 1.25; margin: 0 0 8px; }
+p { margin: 8px 0; }
+.meta, .rules { color: var(--text-muted); font-size: 13px; }
+.rules { white-space: pre-wrap; margin-bottom: 14px; }
+.market-meta { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; column-gap: 10px; margin-bottom: 10px; }
+.market-meta p { margin: 0; }
+.badge { color: #ff9aa4; font-size: 11px; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; }
+.bar { height: 5px; background: #555159; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+.bar span { display: block; height: 100%; background: var(--red); }
+.split { display: flex; justify-content: space-between; gap: 12px; margin-top: 10px; font-weight: 650; font-size: 13px; }
+.split span:last-child { text-align: right; }
+.form { display: grid; gap: 12px; }
+.form label { display: grid; gap: 4px; }
+.form .grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); }
+.form > button { justify-self: start; }
+.admin-section { margin-bottom: 18px; }
+.actions { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 12px; }
+.actions select { max-width: 100%; }
+.actions input { width: 100px; }
+textarea { resize: vertical; }
+.empty { border: 1px dashed var(--line); border-radius: 10px; padding: 22px; margin: 0; }
+@media (max-width: 620px) {
+  header { flex-wrap: wrap; }
+}
